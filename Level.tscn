@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://WallTileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Player.gd" type="Script" id=2]
@@ -11,7 +11,11 @@
 [ext_resource path="res://Sprites/fire/llama5.png" type="Texture" id=9]
 [ext_resource path="res://Sprites/fire/llama4.png" type="Texture" id=10]
 [ext_resource path="res://BackgroundTileset.tres" type="TileSet" id=11]
-[ext_resource path="res://Textures/light.png" type="Texture" id=12]
+[ext_resource path="res://Textures/pixelight.png" type="Texture" id=12]
+[ext_resource path="res://SFX/jump.wav" type="AudioStream" id=13]
+[ext_resource path="res://SFX/floor.wav" type="AudioStream" id=14]
+[ext_resource path="res://Sprite.gd" type="Script" id=15]
+[ext_resource path="res://SFX/step.wav" type="AudioStream" id=16]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -31,7 +35,7 @@ animations = [ {
 "frames": [ ExtResource( 5 ), ExtResource( 3 ) ],
 "loop": true,
 "name": "Walk",
-"speed": 5.0
+"speed": 4.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=3]
@@ -68,8 +72,8 @@ animation = "Burning"
 
 [node name="Light2D" type="Light2D" parent="Player/Flame"]
 texture = ExtResource( 12 )
-texture_scale = 0.25
-color = Color( 0.831373, 0.721569, 0.654902, 1 )
+texture_scale = 0.64
+color = Color( 0.941176, 0.898039, 0.796078, 1 )
 shadow_enabled = true
 
 [node name="Sprite" type="AnimatedSprite" parent="Player"]
@@ -77,6 +81,13 @@ position = Vector2( 0, -3 )
 frames = SubResource( 2 )
 animation = "Idle"
 playing = true
+script = ExtResource( 15 )
+
+[node name="Step" type="AudioStreamPlayer2D" parent="Player/Sprite"]
+position = Vector2( -224, -61 )
+stream = ExtResource( 16 )
+volume_db = -14.136
+pitch_scale = 0.77
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2( -4, -1 )
@@ -85,6 +96,14 @@ shape = SubResource( 3 )
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
 zoom = Vector2( 0.5, 0.5 )
+
+[node name="JumpSound" type="AudioStreamPlayer2D" parent="Player"]
+stream = ExtResource( 13 )
+volume_db = -2.144
+
+[node name="FloorSound" type="AudioStreamPlayer2D" parent="Player"]
+stream = ExtResource( 14 )
+volume_db = -1.01
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 light_mask = 5

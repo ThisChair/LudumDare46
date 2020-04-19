@@ -1,13 +1,14 @@
 extends KinematicBody2D
 
 
-const WALK_SPEED = 250
-const WALK_ACC = 15
+const WALK_SPEED = 200
+const WALK_ACC = 10
 const GRAVITY = 15
 const UP = Vector2(0,-1)
 const JUMP_SPEED = 500
 
 var velocity = Vector2()
+var airborne = false
 
 func _physics_process(delta):
 	$Flame.play("Burning")
@@ -29,8 +30,13 @@ func _physics_process(delta):
 		velocity.x = lerp(velocity.x, 0, 0.025)
 		$Sprite.play("Idle")
 	if is_on_floor():
-		if Input.is_action_just_released("ui_accept"):
+		if airborne:
+			airborne = false
+			$FloorSound.play()
+		if Input.is_action_just_pressed("ui_accept"):
 			velocity.y = -JUMP_SPEED
+			$JumpSound.play()
 	else:
 		$Sprite.play("Idle")
+		airborne = true
 	velocity = move_and_slide(velocity, UP)
