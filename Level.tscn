@@ -11,7 +11,7 @@
 [ext_resource path="res://Sprites/fire/llama5.png" type="Texture" id=9]
 [ext_resource path="res://Sprites/fire/llama4.png" type="Texture" id=10]
 [ext_resource path="res://BackgroundTileset.tres" type="TileSet" id=11]
-[ext_resource path="res://Textures/pixelight.png" type="Texture" id=12]
+[ext_resource path="res://Textures/light.png" type="Texture" id=12]
 [ext_resource path="res://SFX/jump.wav" type="AudioStream" id=13]
 [ext_resource path="res://SFX/floor.wav" type="AudioStream" id=14]
 [ext_resource path="res://Sprite.gd" type="Script" id=15]
@@ -72,8 +72,10 @@ animation = "Burning"
 
 [node name="Light2D" type="Light2D" parent="Player/Flame"]
 texture = ExtResource( 12 )
-texture_scale = 0.64
+texture_scale = 0.35
 color = Color( 0.941176, 0.898039, 0.796078, 1 )
+energy = 0.86
+mode = 2
 shadow_enabled = true
 
 [node name="Sprite" type="AnimatedSprite" parent="Player"]
