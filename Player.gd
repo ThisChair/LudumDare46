@@ -5,7 +5,7 @@ const WALK_SPEED = 250
 const WALK_ACC = 15
 const GRAVITY = 15
 const UP = Vector2(0,-1)
-const JUMP_SPEED = 400
+const JUMP_SPEED = 500
 
 var velocity = Vector2()
 
