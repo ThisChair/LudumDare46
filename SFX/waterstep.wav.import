@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/waterstep.wav-5f371a669c2315f662b6e4b166dc64bd.sample"
+
+[deps]
+
+source_file="res://SFX/waterstep.wav"
+dest_files=[ "res://.import/waterstep.wav-5f371a669c2315f662b6e4b166dc64bd.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
