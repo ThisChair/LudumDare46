@@ -13,6 +13,8 @@ var airborne = false
 var on_water = false
 var wave
 
+var on_elevator = false
+
 func _physics_process(delta):
 	$Flame.play("Burning")
 	velocity.y += GRAVITY
@@ -48,4 +50,7 @@ func _physics_process(delta):
 	else:
 		$Sprite.play("Idle")
 		airborne = true
-	velocity = move_and_slide(velocity, UP)
+	if on_elevator:
+		velocity = Vector2(0,0)
+	else:
+		velocity = move_and_slide(velocity, UP)
