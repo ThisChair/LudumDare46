@@ -23,6 +23,7 @@ var _timer = null
 
 
 func _ready():
+	$Music.play()
 	$Flame/Light2D.texture_scale = INITIAL_LIGHT
 	_timer = Timer.new()
 	add_child(_timer)

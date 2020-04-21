@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=2]
+[gd_scene load_steps=50 format=2]
 
 [ext_resource path="res://WallTileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Player.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Sprites/player/idle.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/player/walk0.png" type="Texture" id=5]
 [ext_resource path="res://Flame.tscn" type="PackedScene" id=6]
+[ext_resource path="res://SFX/cave.ogg" type="AudioStream" id=7]
 [ext_resource path="res://BackgroundTileset.tres" type="TileSet" id=11]
 [ext_resource path="res://SFX/jump.wav" type="AudioStream" id=13]
 [ext_resource path="res://SFX/floor.wav" type="AudioStream" id=14]
@@ -167,6 +168,12 @@ volume_db = -2.144
 [node name="FloorSound" type="AudioStreamPlayer2D" parent="Player"]
 stream = ExtResource( 14 )
 volume_db = -1.01
+
+[node name="Music" type="AudioStreamPlayer2D" parent="Player"]
+position = Vector2( -96, -928 )
+stream = ExtResource( 7 )
+volume_db = -8.078
+attenuation = 0.0457527
 
 [node name="Water" type="TileMap" parent="."]
 modulate = Color( 0.764706, 0.792157, 0.823529, 0.752941 )
@@ -658,7 +665,6 @@ __meta__ = {
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Bat"]
 frames = SubResource( 8 )
-frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bat"]
@@ -681,7 +687,6 @@ playing = true
 shape = SubResource( 9 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 light_mask = 5
 color = Color( 0, 0, 0, 1 )
 
