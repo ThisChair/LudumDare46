@@ -32,7 +32,7 @@
 [ext_resource path="res://FallingDoor.gd" type="Script" id=34]
 [ext_resource path="res://Door.gd" type="Script" id=35]
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 5 ), ExtResource( 3 ) ],
 "loop": true,
@@ -45,13 +45,13 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 7.31927, 32.5822 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 32, 16.8388 )
 
-[sub_resource type="SpriteFrames" id=5]
+[sub_resource type="SpriteFrames" id=4]
 animations = [ {
 "frames": [ ExtResource( 22 ), ExtResource( 21 ), ExtResource( 22 ) ],
 "loop": false,
@@ -59,7 +59,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="SpriteFrames" id=6]
+[sub_resource type="SpriteFrames" id=5]
 animations = [ {
 "frames": [ ExtResource( 26 ), ExtResource( 27 ), ExtResource( 25 ), ExtResource( 24 ) ],
 "loop": false,
@@ -67,27 +67,27 @@ animations = [ {
 "speed": 8.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 96, 10 )
 
-[sub_resource type="RectangleShape2D" id=19]
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 0.515549, 0.233128 )
 
-[sub_resource type="RectangleShape2D" id=14]
+[sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 15.8116, 32.0088 )
 
-[sub_resource type="RectangleShape2D" id=15]
+[sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 10, 1.98624 )
 
-[sub_resource type="RectangleShape2D" id=16]
+[sub_resource type="RectangleShape2D" id=10]
 
-[sub_resource type="RectangleShape2D" id=17]
+[sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 22.1196, 39.4807 )
 
-[sub_resource type="RectangleShape2D" id=18]
+[sub_resource type="RectangleShape2D" id=12]
 extents = Vector2( 24.2104, 40.4908 )
 
-[sub_resource type="SpriteFrames" id=8]
+[sub_resource type="SpriteFrames" id=13]
 animations = [ {
 "frames": [ ExtResource( 18 ), ExtResource( 17 ) ],
 "loop": true,
@@ -95,10 +95,10 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=9]
+[sub_resource type="RectangleShape2D" id=14]
 extents = Vector2( 13.7905, 4.93095 )
 
-[sub_resource type="SpriteFrames" id=10]
+[sub_resource type="SpriteFrames" id=15]
 animations = [ {
 "frames": [ ExtResource( 30 ) ],
 "loop": true,
@@ -111,13 +111,13 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=11]
+[sub_resource type="RectangleShape2D" id=16]
 extents = Vector2( 43.2834, 3.95996 )
 
-[sub_resource type="RectangleShape2D" id=12]
+[sub_resource type="RectangleShape2D" id=17]
 extents = Vector2( 41.9177, 10 )
 
-[sub_resource type="RectangleShape2D" id=13]
+[sub_resource type="RectangleShape2D" id=18]
 extents = Vector2( 10, 38.8884 )
 
 [node name="Level" type="Node"]
@@ -142,7 +142,7 @@ __meta__ = {
 
 [node name="Sprite" type="AnimatedSprite" parent="Player"]
 position = Vector2( 0, -3 )
-frames = SubResource( 2 )
+frames = SubResource( 1 )
 animation = "Idle"
 playing = true
 script = ExtResource( 15 )
@@ -155,7 +155,7 @@ pitch_scale = 0.77
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2( -4, -1 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
@@ -198,21 +198,21 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Waves/Wave"]
 position = Vector2( 0, 17 )
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 
 [node name="WaveAnimation" type="AnimatedSprite" parent="Waves/Wave"]
-frames = SubResource( 5 )
+frames = SubResource( 4 )
 animation = "Wave"
 
 [node name="Enter" type="Area2D" parent="Waves/Wave"]
 collision_mask = 0
 
 [node name="EnterAnimation" type="AnimatedSprite" parent="Waves/Wave/Enter"]
-frames = SubResource( 6 )
+frames = SubResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Waves/Wave/Enter"]
 position = Vector2( 64, 9 )
-shape = SubResource( 7 )
+shape = SubResource( 6 )
 
 [node name="WaterStep" type="AudioStreamPlayer2D" parent="Waves/Wave"]
 position = Vector2( -512, 61 )
@@ -234,10 +234,10 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Waves/Wave2"]
 position = Vector2( 0, 17 )
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 
 [node name="WaveAnimation" type="AnimatedSprite" parent="Waves/Wave2"]
-frames = SubResource( 5 )
+frames = SubResource( 4 )
 animation = "Wave"
 
 [node name="WaterStep" type="AudioStreamPlayer2D" parent="Waves/Wave2"]
@@ -256,10 +256,10 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Waves/Wave3"]
 position = Vector2( 0, 17 )
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 
 [node name="WaveAnimation" type="AnimatedSprite" parent="Waves/Wave3"]
-frames = SubResource( 5 )
+frames = SubResource( 4 )
 animation = "Wave"
 
 [node name="WaterStep" type="AudioStreamPlayer2D" parent="Waves/Wave3"]
@@ -278,10 +278,10 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Waves/Wave4"]
 position = Vector2( 0, 17 )
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 
 [node name="WaveAnimation" type="AnimatedSprite" parent="Waves/Wave4"]
-frames = SubResource( 5 )
+frames = SubResource( 4 )
 animation = "Wave"
 
 [node name="WaterStep" type="AudioStreamPlayer2D" parent="Waves/Wave4"]
@@ -300,10 +300,10 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Waves/Wave5"]
 position = Vector2( 0, 17 )
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 
 [node name="WaveAnimation" type="AnimatedSprite" parent="Waves/Wave5"]
-frames = SubResource( 5 )
+frames = SubResource( 4 )
 animation = "Wave"
 
 [node name="WaterStep" type="AudioStreamPlayer2D" parent="Waves/Wave5"]
@@ -318,7 +318,7 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Waves/Deep"]
 position = Vector2( 992, 928 )
 scale = Vector2( 100, 100 )
-shape = SubResource( 19 )
+shape = SubResource( 7 )
 
 [node name="Waves2" type="Node" parent="."]
 
@@ -332,21 +332,21 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Waves2/Wave"]
 position = Vector2( 0, 17 )
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 
 [node name="WaveAnimation" type="AnimatedSprite" parent="Waves2/Wave"]
-frames = SubResource( 5 )
+frames = SubResource( 4 )
 animation = "Wave"
 
 [node name="Enter" type="Area2D" parent="Waves2/Wave"]
 collision_mask = 0
 
 [node name="EnterAnimation" type="AnimatedSprite" parent="Waves2/Wave/Enter"]
-frames = SubResource( 6 )
+frames = SubResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Waves2/Wave/Enter"]
 position = Vector2( 64, 9 )
-shape = SubResource( 7 )
+shape = SubResource( 6 )
 
 [node name="WaterStep" type="AudioStreamPlayer2D" parent="Waves2/Wave"]
 position = Vector2( -512, 61 )
@@ -368,10 +368,10 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Waves2/Wave2"]
 position = Vector2( 0, 17 )
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 
 [node name="WaveAnimation" type="AnimatedSprite" parent="Waves2/Wave2"]
-frames = SubResource( 5 )
+frames = SubResource( 4 )
 animation = "Wave"
 
 [node name="WaterStep" type="AudioStreamPlayer2D" parent="Waves2/Wave2"]
@@ -390,10 +390,10 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Waves2/Wave3"]
 position = Vector2( 0, 17 )
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 
 [node name="WaveAnimation" type="AnimatedSprite" parent="Waves2/Wave3"]
-frames = SubResource( 5 )
+frames = SubResource( 4 )
 animation = "Wave"
 
 [node name="WaterStep" type="AudioStreamPlayer2D" parent="Waves2/Wave3"]
@@ -412,10 +412,10 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Waves2/Wave4"]
 position = Vector2( 0, 17 )
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 
 [node name="WaveAnimation" type="AnimatedSprite" parent="Waves2/Wave4"]
-frames = SubResource( 5 )
+frames = SubResource( 4 )
 animation = "Wave"
 
 [node name="WaterStep" type="AudioStreamPlayer2D" parent="Waves2/Wave4"]
@@ -434,10 +434,10 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Waves2/Wave5"]
 position = Vector2( 0, 17 )
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 
 [node name="WaveAnimation" type="AnimatedSprite" parent="Waves2/Wave5"]
-frames = SubResource( 5 )
+frames = SubResource( 4 )
 animation = "Wave"
 
 [node name="WaterStep" type="AudioStreamPlayer2D" parent="Waves2/Wave5"]
@@ -456,10 +456,10 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Waves2/Wave6"]
 position = Vector2( 0, 17 )
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 
 [node name="WaveAnimation" type="AnimatedSprite" parent="Waves2/Wave6"]
-frames = SubResource( 5 )
+frames = SubResource( 4 )
 animation = "Wave"
 
 [node name="WaterStep" type="AudioStreamPlayer2D" parent="Waves2/Wave6"]
@@ -478,10 +478,10 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Waves2/Wave7"]
 position = Vector2( 0, 17 )
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 
 [node name="WaveAnimation" type="AnimatedSprite" parent="Waves2/Wave7"]
-frames = SubResource( 5 )
+frames = SubResource( 4 )
 animation = "Wave"
 
 [node name="WaterStep" type="AudioStreamPlayer2D" parent="Waves2/Wave7"]
@@ -500,10 +500,10 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Waves2/Wave8"]
 position = Vector2( 0, 17 )
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 
 [node name="WaveAnimation" type="AnimatedSprite" parent="Waves2/Wave8"]
-frames = SubResource( 5 )
+frames = SubResource( 4 )
 animation = "Wave"
 
 [node name="WaterStep" type="AudioStreamPlayer2D" parent="Waves2/Wave8"]
@@ -522,10 +522,10 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Waves2/Wave9"]
 position = Vector2( 0, 17 )
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 
 [node name="WaveAnimation" type="AnimatedSprite" parent="Waves2/Wave9"]
-frames = SubResource( 5 )
+frames = SubResource( 4 )
 animation = "Wave"
 
 [node name="WaterStep" type="AudioStreamPlayer2D" parent="Waves2/Wave9"]
@@ -541,7 +541,7 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Waves2/Deep"]
 position = Vector2( 992, 928 )
 scale = Vector2( 100, 100 )
-shape = SubResource( 19 )
+shape = SubResource( 7 )
 
 [node name="Door" type="Node" parent="."]
 script = ExtResource( 35 )
@@ -559,7 +559,7 @@ __meta__ = {
 texture = ExtResource( 33 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door/FallingDoor"]
-shape = SubResource( 14 )
+shape = SubResource( 8 )
 
 [node name="Top" type="StaticBody2D" parent="Door"]
 position = Vector2( 237.098, 288.632 )
@@ -567,7 +567,7 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door/Top"]
-shape = SubResource( 15 )
+shape = SubResource( 9 )
 
 [node name="Bottom" type="StaticBody2D" parent="Door"]
 position = Vector2( 237.098, 288.632 )
@@ -576,14 +576,14 @@ collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door/Bottom"]
 position = Vector2( 0, 79.4214 )
-shape = SubResource( 16 )
+shape = SubResource( 10 )
 
 [node name="Player detect" type="Area2D" parent="Door"]
 position = Vector2( 195.994, 324.58 )
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door/Player detect"]
-shape = SubResource( 17 )
+shape = SubResource( 11 )
 
 [node name="Blocker" type="StaticBody2D" parent="Door"]
 position = Vector2( 237.098, 324.58 )
@@ -591,7 +591,7 @@ collision_layer = 2
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door/Blocker"]
-shape = SubResource( 18 )
+shape = SubResource( 12 )
 
 [node name="Door2" type="Node" parent="."]
 script = ExtResource( 35 )
@@ -609,7 +609,7 @@ __meta__ = {
 texture = ExtResource( 33 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door2/FallingDoor"]
-shape = SubResource( 14 )
+shape = SubResource( 8 )
 
 [node name="Top" type="StaticBody2D" parent="Door2"]
 position = Vector2( 769.633, -704.245 )
@@ -617,7 +617,7 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door2/Top"]
-shape = SubResource( 15 )
+shape = SubResource( 9 )
 
 [node name="Bottom" type="StaticBody2D" parent="Door2"]
 position = Vector2( 769.633, -704.245 )
@@ -626,14 +626,14 @@ collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door2/Bottom"]
 position = Vector2( 0, 79.4214 )
-shape = SubResource( 16 )
+shape = SubResource( 10 )
 
 [node name="Player detect" type="Area2D" parent="Door2"]
 position = Vector2( 728.529, -668.297 )
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door2/Player detect"]
-shape = SubResource( 17 )
+shape = SubResource( 11 )
 
 [node name="Blocker" type="StaticBody2D" parent="Door2"]
 position = Vector2( 769.633, -668.297 )
@@ -641,7 +641,7 @@ collision_layer = 2
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door2/Blocker"]
-shape = SubResource( 18 )
+shape = SubResource( 12 )
 
 [node name="WallTileset" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
@@ -664,11 +664,12 @@ __meta__ = {
 }
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Bat"]
-frames = SubResource( 8 )
+frames = SubResource( 13 )
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bat"]
-shape = SubResource( 9 )
+shape = SubResource( 14 )
 
 [node name="Bat2" type="KinematicBody2D" parent="."]
 position = Vector2( 253.098, -442.598 )
@@ -680,11 +681,12 @@ __meta__ = {
 }
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Bat2"]
-frames = SubResource( 8 )
+frames = SubResource( 13 )
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bat2"]
-shape = SubResource( 9 )
+shape = SubResource( 14 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 light_mask = 5
@@ -700,22 +702,22 @@ __meta__ = {
 
 [node name="Sprite" type="AnimatedSprite" parent="Elevator"]
 position = Vector2( 0, -64 )
-frames = SubResource( 10 )
+frames = SubResource( 15 )
 animation = "up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Elevator"]
 position = Vector2( 0, -11 )
-shape = SubResource( 11 )
+shape = SubResource( 16 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Elevator"]
 position = Vector2( 0, -110 )
-shape = SubResource( 12 )
+shape = SubResource( 17 )
 
 [node name="Area2D" type="Area2D" parent="Elevator"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Elevator/Area2D"]
 position = Vector2( 0, -56 )
-shape = SubResource( 13 )
+shape = SubResource( 18 )
 [connection signal="body_entered" from="Waves/Wave" to="Waves/Wave" method="_on_Wave_body_entered"]
 [connection signal="body_exited" from="Waves/Wave" to="Waves/Wave" method="_on_Wave_body_exited"]
 [connection signal="animation_finished" from="Waves/Wave/WaveAnimation" to="Waves/Wave" method="_on_WaveAnimation_animation_finished"]

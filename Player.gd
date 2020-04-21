@@ -35,6 +35,8 @@ func _ready():
 
 
 func _on_Timer_timeout():
+	if $Flame/Light2D.texture_scale - 0.005 * light_mod <= 0:
+		get_tree().change_scene("res://GameOver.tscn")
 	$Flame/Light2D.texture_scale -= 0.005 * light_mod
 	lives -= 1 * light_mod
 	
