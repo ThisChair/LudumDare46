@@ -6,6 +6,10 @@ const WALK_ACC = 10
 const GRAVITY = 15
 const UP = Vector2(0,-1)
 const JUMP_SPEED = 500
+const INITIAL_LIGHT = 0.35
+
+var lives = 70
+var light_mod = 1
 
 var velocity = Vector2()
 var airborne = false
@@ -15,7 +19,28 @@ var wave
 
 var on_elevator = false
 
+var _timer = null
+
+
+func _ready():
+	$Flame/Light2D.texture_scale = INITIAL_LIGHT
+	_timer = Timer.new()
+	add_child(_timer)
+
+	_timer.connect("timeout", self, "_on_Timer_timeout")
+	_timer.set_wait_time(1.0)
+	_timer.set_one_shot(false) # Make sure it loops
+	_timer.start()
+
+
+func _on_Timer_timeout():
+	$Flame/Light2D.texture_scale -= 0.005 * light_mod
+	lives -= 1 * light_mod
+	
+
 func _physics_process(delta):
+	if lives == 0:
+		get_tree().change_scene("res://GameOver.tscn")
 	$Flame.play("Burning")
 	velocity.y += GRAVITY
 	if (Input.is_action_just_pressed("ui_left") or Input.is_action_just_pressed("ui_right")) and not airborne:
@@ -54,3 +79,7 @@ func _physics_process(delta):
 		velocity = Vector2(0,0)
 	else:
 		velocity = move_and_slide(velocity, UP)
+
+
+func _on_Deep_body_entered(body):
+	get_tree().change_scene("res://GameOver.tscn")

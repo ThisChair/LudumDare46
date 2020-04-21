@@ -19,3 +19,5 @@ func _ready():
 func _on_Area2D_body_entered(body):
 	body.on_elevator = true
 	$Sprite.play('up')
+	get_tree().change_scene("res://Win.tscn")
+

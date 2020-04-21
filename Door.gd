@@ -20,4 +20,4 @@ func _on_Player_detect_body_entered(body):
 	if not player_passed:
 		player_passed = true
 		$Top.queue_free()
-		$Blocker.set_collision_layer_bit(1,true)
+		$Blocker.set_collision_layer_bit(0,true)
